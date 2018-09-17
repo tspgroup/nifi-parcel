@@ -33,7 +33,7 @@ $ cd build-parcel
 $ python -m SimpleHTTPServer 14641
 # navigate to Cloudera Manager -> Parcels -> Edit Settings
 # Add fqdn:14641 to list of urls
-# install the NIFI parcel
+# Download, distribute and activate the NIFI parcel
 ```
 
 4. Move CSD to Cloudera Manager's CSD Repo
