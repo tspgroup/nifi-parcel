@@ -11,6 +11,7 @@ NIFI_TAR_NAME=$(basename $NIFI_TAR_PATH)
 
 VALIDATOR_DIR=${VALIDATOR_DIR:-~/trash/cm_ext}
 POINT_VERSION=${POINT_VERSION:-1}
+DISTRO_SUFFIX=${DISTRO_SUFFIX:-el7}
 
 SRC_DIR=${SRC_DIR:-parcel-src}
 BUILD_DIR=${BUILD_DIR:-build-parcel}
@@ -57,11 +58,11 @@ java -jar $VALIDATOR_DIR/validator/target/validator.jar \
 export COPYFILE_DISABLE=true
 
 # create parcel
-tar zcvf ${PARCEL_NAME}-el6.parcel ${PARCEL_NAME}
+tar zcvf ${PARCEL_NAME}-${DISTRO_SUFFIX}.parcel ${PARCEL_NAME}
 
 # validate parcel
 java -jar $VALIDATOR_DIR/validator/target/validator.jar \
-  -f ${PARCEL_NAME}-el6.parcel
+  -f ${PARCEL_NAME}-${DISTRO_SUFFIX}.parcel
 
 # create manifest
 $VALIDATOR_DIR/make_manifest/make_manifest.py
