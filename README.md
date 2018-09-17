@@ -12,7 +12,8 @@ cd cm_ext/validator
 mvn install
 ```
 
-1. Create parcel & CSD:
+1. Create parcel & CSD for RHEL/CentOS 7.
+To build a parcel for other distros change the `DISTRO_SUFFIX` environment variable: the list of supported distro suffixes is available here https://github.com/cloudera/cm_ext/wiki/Parcel-distro-suffixes
 ```sh
 $ cd /tmp
 # First, create NiFi package
@@ -22,7 +23,7 @@ $ mvn clean install
 $ cd /tmp
 $ git clone http://github.com/prateek/nifi-parcel
 $ cd nifi-parcel
-$ POINT_VERSION=5 VALIDATOR_DIR=/tmp/cm_ext ./build-parcel.sh /tmp/nifi/nifi-assembly/target/nifi-*-SNAPSHOT-bin.tar.gz
+$ POINT_VERSION=5 DISTRO_SUFFIX=el7 VALIDATOR_DIR=/tmp/cm_ext ./build-parcel.sh /tmp/nifi/nifi-assembly/target/nifi-*-SNAPSHOT-bin.tar.gz
 $ VALIDATOR_DIR=/tmp/cm_ext ./build-csd.sh
 ```
 
