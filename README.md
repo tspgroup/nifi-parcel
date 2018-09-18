@@ -44,14 +44,16 @@ $ sudo service cloudera-scm-server restart
 # Wait a min, go to Cloudera Manager -> Add a Service -> NiFi
 ```
 
-## Important note
+## Important notes
 
-NiFi integration with Cloudera is not as good as a native service. Cloudera manager does not configure it as a cluster automatically
+1. NiFi integration with Cloudera is not as good as a native service. Cloudera manager does not configure it as a cluster automatically
 and it cannot control NiFi configuration either. Unfortunately, you will still have to edit nifi.propertoes file on each node and
 configure it to work in cluster and to use Cloudera’s Zookeeper. More information [here](http://www.idata.co.il/2017/10/integrating-apache-nifi-with-cloudera-manager/).
 
+2. Before adding the services check that NIFI directories (in `/opt/cloudera/parcels/NIFI`) are owned by user `nifi` (with group `nifi`),
+otherwise the service will start as root instead of the dedicated nifi user.
+
 ## Pending items
-- Currently `NiFi` runs under the `root` user
 - Expose config options under Cloudera Manager
-  - Conf folder from parcels is used, this needs to be migrated to ConfigWriter
+- Conf folder from parcels is used, this needs to be migrated to ConfigWriter
 - Expose metrics from NiFi
