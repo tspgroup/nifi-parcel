@@ -40,11 +40,6 @@ $ python -m SimpleHTTPServer 14641
 ```sh
 # transfer build-csd/NIFI-1.0.jar to CM's host
 $ cp NIFI-1.0.jar /opt/cloudera/csd
-$ mkdir /opt/cloudera/csd/NIFI-1.0
-$ cp NIFI-1.0.jar /opt/cloudera/csd/NIFI-1.0
-$ cd /opt/cloudera/csd/NIFI-1.0
-$ jar xvf NIFI-1.0.jar
-$ rm -f NIFI-1.0.jar
 $ sudo service cloudera-scm-server restart
 # Wait a min, go to Cloudera Manager -> Add a Service -> NiFi
 ```
