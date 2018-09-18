@@ -4,8 +4,8 @@
   "description" : "NiFi service",
   "version" : 1,
   "runAs" : {
-    "user" : "root",
-    "group" : "root"
+    "user" : "nifi",
+    "group" : "nifi"
    },
   "maxInstances" : 1,
   "icon" : "images/icon.png",
